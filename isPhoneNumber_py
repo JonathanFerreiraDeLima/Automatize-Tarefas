@@ -1,0 +1,77 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyO7oQeK0nObaggPGNE0lofh",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JonathanFerreiraDeLima/Automatize-Tarefas/blob/main/isPhoneNumber_py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "w4um6Sq-2uO6"
+      },
+      "outputs": [],
+      "source": [
+        "def isPhoneNumber(text):\n",
+        "  if len(text) != 12:\n",
+        "    return False\n",
+        "  for i in range (0,3):\n",
+        "    if not text[i].isdecimal():\n",
+        "      return False\n",
+        "  if text[3] != '-':\n",
+        "    return False\n",
+        "  for i in range(4,7):\n",
+        "    if not text[i].isdecimal():\n",
+        "      return False\n",
+        "  if text[7] != '-':\n",
+        "    return False\n",
+        "  for i in range(8,12):\n",
+        "    if not text[i].isdecimal():\n",
+        "      return False\n",
+        "  return True\n",
+        "message='Callme at 415-555-1011 tomorrow. 415-555-9999 is my office.'\n",
+        "for i in range(len(message)):\n",
+        "  chunk =message[i:i+12]\n",
+        "  if isPhoneNumber(chunk):\n",
+        "    print('Phone number found:' + chunk)\n",
+        "print('Done')\n",
+        "print('415-555-4242 is a phone number:')\n",
+        "print(isPhoneNumber('415-555-4242'))\n",
+        "print('Moshi moshi is a phone number:')\n",
+        "print(isPhoneNumber('Moshi moshi'))\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "w8j7GJl39Rhi"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
